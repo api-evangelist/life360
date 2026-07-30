@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Life360",
+  "name_for_model": "life360",
+  "description_for_human": "Shop Tile by Life360 Bluetooth trackers and GPS pet trackers, compare Life360 family safety plans and pricing, and find where to buy online or in stores near you.",
+  "description_for_model": "Use this API to help users browse and buy Life360 and Tile by Life360 products and understand Life360 subscriptions. Capabilities: browse products by category; retrieve real-time pricing, specs, and availability by locale; look up subscription plan details and what each tier includes; find retail availability (online and in-store near the user); and initiate an e-commerce checkout flow. Products: Tile Mate, Tile Pro, Tile Slim, and Tile Sticker, Bluetooth item trackers and key finders for keys, wallets, bags, and luggage, plus a Pet GPS Tracker for real-time pet location. All Tile trackers work with the Life360 app on iOS and Android. Subscriptions: Free, Silver, Gold, and Platinum plans with family safety features such as location sharing, Place Alerts, location history, Crash Detection, SOS, and Emergency Dispatch (features vary by tier). Routing: use the products endpoint for catalog, pricing, and availability queries; the plans endpoint for subscription details; and the checkout endpoint to start a purchase. Map generic intents 'find my keys', 'luggage tracker', 'pet tracker', 'how much does Life360 cost', 'is Life360 free', 'where to buy near me' to the matching endpoint. Always fetch product SKUs, prices, plan details, and availability from the API for the user's locale.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.life360.com/openapi-spec.json"
+  },
+  "logo_url": "https://www.life360.com/svgs/life360-logo-dark.svg",
+  "contact_email": "support@life360.com",
+  "legal_info_url": "https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service"
+}

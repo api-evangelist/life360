@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ and root discovery paths
+host: https://www.life360.com
+notes: >-
+  www.life360.com fronts requests with a Cloudflare WAF that returns 403 to
+  browser user-agents from datacenter IPs. All statuses below were captured with
+  a declared crawler user-agent, which the edge allows. api.life360.com is the
+  private mobile-app backend; it returned 404 for every discovery path probed and
+  publishes no documented developer surface.
+documents:
+- path: /.well-known/security.txt
+  status: 200
+  file: life360-security.txt
+  standard: RFC 9116
+- path: /.well-known/ai-plugin.json
+  status: 200
+  file: life360-ai-plugin.json
+  standard: OpenAI plugin manifest v1
+  note: >-
+    Advertises an OpenAPI at https://www.life360.com/openapi-spec.json, which
+    returns 404 — the manifest's api.url is a dangling reference. No OpenAPI was
+    recoverable at that or any conventional alternate path.
+- path: /robots.txt
+  status: 200
+  file: life360-robots.txt
+  note: >-
+    Carries a Content-Signal directive (ai-train=no, ai-input=yes, search=yes)
+    and explicit Allow rules for GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot
+    and Google-Extended.
+- path: /llms.txt
+  status: 200
+  file: ../llms/life360-llms.txt
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/mcp.json
+  status: 404
+- path: /.well-known/agent.json
+  status: 404
+- path: /.well-known/apis.json
+  status: 404
+- path: /AGENTS.md
+  status: 404
+other_hosts:
+- host: https://api.life360.com
+  probed:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 404

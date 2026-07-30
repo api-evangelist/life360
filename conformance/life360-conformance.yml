@@ -1,0 +1,82 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://www.life360.com/.well-known/security.txt,
+  https://www.life360.com/robots.txt,
+  https://www.life360.com/.well-known/ai-plugin.json,
+  https://support.life360.com/hc/en-us/articles/23053603208855-Security-of-My-Information
+scope: >-
+  Life360 publishes no public API, no OpenAPI and no developer portal, so the
+  usual spec-derived conformance signals (OAuth2/OIDC schemes, RFC 9457 problem
+  details, pagination, idempotency) are not assessable. What follows is limited
+  to the cross-cutting standards Life360 does publish on its web surface.
+standards:
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    /.well-known/security.txt served with Contact, Preferred-Languages,
+    Canonical and Hiring fields.
+  caveat: >-
+    The Expires field reads 2022-12-31T23:59:00.000Z — the file is expired per
+    RFC 9116 §2.5.5 and should be refreshed.
+- id: ai-plugin-manifest-v1
+  conforms: partial
+  evidence: >-
+    /.well-known/ai-plugin.json is a well-formed schema_version v1 manifest with
+    name_for_model, description_for_model, auth (none), logo_url and
+    legal_info_url.
+  caveat: >-
+    api.url points at https://www.life360.com/openapi-spec.json, which returns
+    404. The manifest advertises a machine-readable contract that does not
+    resolve, so no agent can actually bind to it.
+- id: llms-txt
+  conforms: true
+  evidence: >-
+    /llms.txt served at the root in llms.txt form (H1, blockquote summary, then
+    sectioned link lists for App Features, Products, Plans & Pricing, Download,
+    Policies, Support, Company and Optional).
+- id: content-signals
+  conforms: true
+  evidence: >-
+    robots.txt carries "Content-Signal: ai-train=no, ai-input=yes, search=yes"
+    plus explicit Allow blocks for GPTBot, ChatGPT-User, ClaudeBot,
+    PerplexityBot and Google-Extended.
+- id: tls-in-transit
+  conforms: true
+  evidence: >-
+    TLSv1.3 with HSTS (max-age 31536000) observed on www.life360.com; the help
+    center states Life360 uses "industry-standard TLS encryption for data in
+    transit, and AES for data at rest, as per our Data Management Policy".
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No /.well-known/oauth-authorization-server, no
+    /.well-known/openid-configuration, no documented OAuth surface.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public API contract to assess.
+- id: api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returned 404.
+certifications_published: []
+compliance_program_published: false
+compliance_note: >-
+  No trust center (trust.life360.com and security.life360.com do not resolve) and
+  no named certifications (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) published
+  on any Life360 surface probed. A "Compliance" pointer is deliberately NOT
+  emitted in apis.yml. Life360 does publish product-level regulatory conformance
+  documents for its hardware (Declaration of Conformity, Korea Certificates,
+  Italy Certificate) in the Legal Center — hardware compliance, not an
+  information-security compliance program.
+hardware_conformance:
+- name: Declaration of Conformity
+  url: https://legal.corp.life360.com/hc/en-us/articles/31941198020759-Declaration-of-Conformity
+- name: Korea Certificates
+  url: https://legal.corp.life360.com/hc/en-us/articles/32538826661783-Korea-Certificates
+- name: Italy Certificate
+  url: https://legal.corp.life360.com/hc/en-us/articles/32538862940695-Italy-Certificate
+- name: Life360 Pet GPS Statement of Compliance
+  url: https://legal.corp.life360.com/hc/en-us/articles/35680967438359-Life360-Pet-GPS-Statement-of-Compliance

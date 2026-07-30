@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.life360.com/
+status_page: https://status.life360.com/
+status_page_evidence:
+  fetched: '2026-07-19'
+  http_status: 200
+  observed: >-
+    "Life360 Status — All systems operational", last updated Jul 9, with a
+    tracked service ("Tile Tracker Sync") and a resolved-incident history
+    ("Routing maintenance", started Jul 7). Self-hosted behind Cloudflare, not
+    Statuspage.io.
+  services:
+  - Tile Tracker Sync
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: >-
+    Life360 publishes no public API and therefore no API versioning policy. The
+    consumer-facing versioned artifacts are the legal documents, which carry
+    explicit version labels (e.g. "Life360 Terms of Service (2026.4)") and dated
+    superseded copies in the Legal Center.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No deprecation or Sunset/Deprecation (RFC 8594) policy published. Life360
+    does version and archive its legal terms — the Legal Center retains dated
+    "previous to <date>" copies of the Privacy Policy and Terms of Service — but
+    that is a document lifecycle, not an API deprecation policy.
+sla:
+  url: null
+  uptime_target: null
+deprecated_operations: []
+document_lifecycle:
+  legal_center: https://legal.corp.life360.com/hc/en-us
+  current_terms_of_service: https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service
+  current_privacy_policy: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+  privacy_policy_last_modified: '2026-07-10'
+  archived_versions_retained: true
