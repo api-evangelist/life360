@@ -1,0 +1,56 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://zapier.com/apps/life360/integrations
+- https://n8n.io/integrations/life360/
+- https://composio.dev/toolkits/life360
+- https://monid.ai/tools/life360
+checked:
+- https://composio.dev/toolkits/life360
+- https://monid.ai/tools/life360
+- https://n8n.io/integrations/life360/
+- https://zapier.com/apps/life360/integrations
+- https://www.life360.com/blog/life360-launches-notifications-skill-for-amazon-alexa
+- https://www.businesswire.com/news/home/20201118005236/en/Life360-and-Google-Collaborate-to-Bring-Family-Coordination-Features-to-Google-Assistant-Enabled-Devices
+- https://500.co/api/startups
+- https://500.co/companies
+- https://www.antler.co/portfolio
+- https://www.techstars.com/portfolio
+- https://www.ycombinator.com/companies
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: 500 Global
+  partner: 500-global
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://500.co/companies
+  category: accelerator portfolio participation
+  contract_reference:
+    register: 500 Global portfolio (500.co/companies; the page's own JSON 500.co/api/startups)
+    standard: null
+    spec_file: null
+    role: accelerator-portfolio-company
+    registered_name: Life360, Inc.
+    register_id: https://500.co/companies
+    register_country: United States
+    register_website: life360.com
+    matched_domain: life360.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-accelerator-portfolios.py
+    detected: '2026-10-21'
+    year: '2010'
+  detected_by: sweep-accelerator-portfolios.py
+  first_seen: '2026-10-21'
+templates: []
+note: No current integration edges recorded. Life360 historically announced an Amazon Alexa notifications skill
+  (beta) and a 2020 Google Assistant collaboration, but a Life360 customer-care reply quoted in a Homey community
+  thread (community.homey.app/t/app-pro-life360/14750) says the Google Assistant feature was removed 2022-04-14
+  and that Life360 no longer supports home automation programs such as Home Assistant, Google Home, Alexa and IFTTT.
+  Because those integrations are discontinued and the remaining ones (Homey, Home Assistant) are unofficial third-party
+  reverse-engineered clients, no edge is asserted.
