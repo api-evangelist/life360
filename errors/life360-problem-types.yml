@@ -1,0 +1,27 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/life360-product-api-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: Error
+coverage:
+  operations: 4
+  statuses_declared: 2
+problems:
+- status: 400
+  title: Bad Request
+  description: A product SKU is required.
+  operations: 3
+  media_types:
+  - application/json
+  schema: Error
+- status: 500
+  title: Internal Server Error
+  description: An error occurred while processing the request.
+  operations: 3
+  media_types:
+  - application/json
+  schema: Error

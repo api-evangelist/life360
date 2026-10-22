@@ -1,0 +1,187 @@
+generated: '2026-10-20'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 13
+  own: 8
+  other_domain: 3
+  platform: 2
+  roles:
+  - api
+  - docs
+  - identity
+  - legal
+  - other
+  - status
+  - support
+  - website
+hosts:
+- host: ads.life360.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: life360.com
+  role: other
+  relation: own
+- host: api.hackerone.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: HackerOne API
+  status: 200
+  registrable_domain: hackerone.com
+  role: api
+  relation: other-domain
+- host: api.life360.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: life360.com
+  role: api
+  relation: own
+- host: app.life360.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Login
+  serves:
+  - hosting
+  vendor: cloudflare-pages
+  registrable_domain: life360.com
+  role: identity
+  relation: own
+- host: apps.apple.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: apple.com
+  role: other
+  relation: platform
+- host: docs.hackerone.com
+  found_by:
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - docs
+  registrable_domain: hackerone.com
+  role: docs
+  relation: other-domain
+- host: investors.life360.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: life360.com
+  role: other
+  relation: own
+- host: legal.corp.life360.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - TermsOfService
+  - PrivacyPolicy
+  serves:
+  - docs
+  registrable_domain: life360.com
+  role: legal
+  relation: own
+- host: play.google.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: google.com
+  role: other
+  relation: other-domain
+- host: status.life360.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: life360.com
+  role: status
+  relation: own
+- host: support.life360.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  serves:
+  - docs
+  - support
+  vendor: zendesk
+  registrable_domain: life360.com
+  role: support
+  relation: own
+- host: www.life360.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - Security
+  - Blog
+  - Pricing
+  - SignUp
+  - Press
+  - Leadership
+  serves:
+  - api
+  - docs
+  - cdn
+  - hosting
+  vendor: cloudflare
+  registrable_domain: life360.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

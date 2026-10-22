@@ -1,0 +1,46 @@
+generated: '2026-10-20'
+method: derived
+source: openapi/life360-product-api-openapi.yml
+scope: >-
+  Derived from the only published contract, the Life360 WEB API v0.1 product catalog
+  (4 GET operations). Life360 publishes no developer docs describing conventions.
+auth:
+  style: none
+  note: No securitySchemes declared; see authentication/life360-authentication.yml.
+idempotency:
+  coverage: na
+  note: Read-only API — every operation is GET; there is no write surface to protect.
+reversibility:
+  coverage: na
+  note: Read-only API — no create/update/delete operations, so nothing to reverse.
+dry_run:
+  coverage: na
+pagination:
+  style: cursor
+  operations:
+  - GET /api/catalog/products
+  params:
+  - name: limit
+    default: 50
+  - name: afterCursor
+    description: Pagination cursor from the previous response's `afterCursor`.
+  response_fields:
+  - afterCursor
+filtering:
+  params: [search, categories, skus, sort]
+  sort_values: [A_TO_Z, BEST_REVIEWED, BEST_SELLING, FEATURED, HIGHEST_PRICE, LOWEST_PRICE, NEWEST, Z_TO_A]
+response_envelope:
+  shape: 'success bodies wrap results in a top-level `data` key (e.g. {"data": {"isAvailable": true}})'
+errors:
+  format: custom-json
+  envelope: '{"errors": [{"message", "field", "code"}]}'
+  statuses: [400, 500]
+  note: Two schemas (Error, ErrorResponse) carry the same errors[] array; not RFC 9457.
+versioning:
+  scheme: none
+  note: info.version 0.1; paths are unversioned; no versioning policy published (see lifecycle/).
+rate_limit_signaling:
+  documented: false
+  see: rate-limits/life360-rate-limits.yml
+request_id:
+  documented: false

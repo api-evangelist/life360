@@ -1,0 +1,471 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/life360/main/json-schema/life360-product-schema.json",
+  "title": "Product",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/life360-openapi.yml#/components/schemas/Product",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The product's unique identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "The product's name."
+    },
+    "type": {
+      "type": "string",
+      "description": "The product's type."
+    },
+    "description": {
+      "type": "string",
+      "description": "The product's description."
+    },
+    "descriptionHtml": {
+      "type": "string",
+      "description": "The product's description in HTML format."
+    },
+    "sku": {
+      "type": "string",
+      "description": "The product's SKU."
+    },
+    "brand": {
+      "type": "string",
+      "description": "The product's brand."
+    },
+    "slug": {
+      "type": "string",
+      "description": "The product's slug."
+    },
+    "path": {
+      "type": "string",
+      "description": "The product's path."
+    },
+    "inventory": {
+      "type": "object",
+      "properties": {
+        "isInStock": {
+          "type": "boolean",
+          "description": "Whether the product is in stock."
+        },
+        "aggregated": {
+          "type": "object",
+          "properties": {
+            "availableToSell": {
+              "type": "number",
+              "description": "If product is available to sell."
+            },
+            "images": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ProductImage"
+              }
+            }
+          }
+        }
+      }
+    },
+    "price": {
+      "$ref": "#/$defs/ProductPrice"
+    },
+    "prices": {
+      "$ref": "#/$defs/ProductPrices"
+    },
+    "options": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ProductOption"
+      }
+    },
+    "details": {
+      "$ref": "#/$defs/JasperProductDetails"
+    },
+    "reviewSummary": {
+      "$ref": "#/$defs/ReviewSummary"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Category"
+      }
+    },
+    "relatedProducts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Product"
+      }
+    },
+    "customFields": {
+      "type": "object"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "pageTitle": {
+          "type": "string",
+          "description": "The product's page title."
+        },
+        "metaDescription": {
+          "type": "string",
+          "description": "The product's meta description."
+        },
+        "metaKeywords": {
+          "type": "string",
+          "description": "The product's meta keywords."
+        }
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type",
+    "description",
+    "brand",
+    "inventory",
+    "images",
+    "price",
+    "prices",
+    "options",
+    "details",
+    "reviewSummary",
+    "categories"
+  ],
+  "$defs": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "breadcrumbs": {
+          "type": "object"
+        },
+        "defaultImage": {
+          "type": "object"
+        },
+        "description": {
+          "type": "string"
+        },
+        "entityId": {
+          "type": "integer"
+        },
+        "metafields": {
+          "type": "object"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "products": {
+          "type": "object"
+        },
+        "seo": {
+          "type": "object"
+        }
+      }
+    },
+    "JasperProductDetails": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "relations": {
+          "type": "object"
+        },
+        "entities": {
+          "type": "object"
+        },
+        "markdownAttributes": {
+          "type": "object"
+        },
+        "bundleQuantity": {
+          "type": "number"
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The product's unique identifier."
+        },
+        "name": {
+          "type": "string",
+          "description": "The product's name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The product's type."
+        },
+        "description": {
+          "type": "string",
+          "description": "The product's description."
+        },
+        "descriptionHtml": {
+          "type": "string",
+          "description": "The product's description in HTML format."
+        },
+        "sku": {
+          "type": "string",
+          "description": "The product's SKU."
+        },
+        "brand": {
+          "type": "string",
+          "description": "The product's brand."
+        },
+        "slug": {
+          "type": "string",
+          "description": "The product's slug."
+        },
+        "path": {
+          "type": "string",
+          "description": "The product's path."
+        },
+        "inventory": {
+          "type": "object",
+          "properties": {
+            "isInStock": {
+              "type": "boolean",
+              "description": "Whether the product is in stock."
+            },
+            "aggregated": {
+              "type": "object",
+              "properties": {
+                "availableToSell": {
+                  "type": "number",
+                  "description": "If product is available to sell."
+                },
+                "images": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/ProductImage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "price": {
+          "$ref": "#/$defs/ProductPrice"
+        },
+        "prices": {
+          "$ref": "#/$defs/ProductPrices"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProductOption"
+          }
+        },
+        "details": {
+          "$ref": "#/$defs/JasperProductDetails"
+        },
+        "reviewSummary": {
+          "$ref": "#/$defs/ReviewSummary"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Category"
+          }
+        },
+        "relatedProducts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Product"
+          }
+        },
+        "customFields": {
+          "type": "object"
+        },
+        "seo": {
+          "type": "object",
+          "properties": {
+            "pageTitle": {
+              "type": "string",
+              "description": "The product's page title."
+            },
+            "metaDescription": {
+              "type": "string",
+              "description": "The product's meta description."
+            },
+            "metaKeywords": {
+              "type": "string",
+              "description": "The product's meta keywords."
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "description",
+        "brand",
+        "inventory",
+        "images",
+        "price",
+        "prices",
+        "options",
+        "details",
+        "reviewSummary",
+        "categories"
+      ]
+    },
+    "ProductImage": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "xxxs": {
+          "type": "string"
+        },
+        "xxs": {
+          "type": "string"
+        },
+        "xs": {
+          "type": "string"
+        },
+        "small": {
+          "type": "string"
+        },
+        "medium": {
+          "type": "string"
+        },
+        "large": {
+          "type": "string"
+        },
+        "xxl": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "order": {
+          "type": "number"
+        },
+        "isThumbnail": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "url",
+        "xxxs",
+        "xxs",
+        "xs",
+        "small",
+        "medium",
+        "large",
+        "xxl",
+        "thumbnail"
+      ]
+    },
+    "ProductOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProductOptionValues"
+          }
+        }
+      }
+    },
+    "ProductOptionValues": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "hexColors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ProductPrice": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "retailPrice": {
+          "type": "number"
+        },
+        "salePrice": {
+          "type": "number"
+        },
+        "listPrice": {
+          "type": "number"
+        },
+        "extendedSalePrice": {
+          "type": "number"
+        },
+        "extendedListPrice": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "ProductPrices": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/$defs/ProductPrice"
+        },
+        "retailPrice": {
+          "$ref": "#/$defs/ProductPrice"
+        },
+        "salePrice": {
+          "$ref": "#/$defs/ProductPrice"
+        }
+      },
+      "required": [
+        "price",
+        "retailPrice"
+      ]
+    },
+    "ReviewSummary": {
+      "type": "object",
+      "properties": {
+        "summationOfRatings": {
+          "type": "number"
+        },
+        "numberOfReviews": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+type: MCPServer
+name: Life360 MCP (candidate)
+generated: '2026-10-20'
+method: derived
+status: candidate
+source:
+- openapi/life360-product-api-openapi.yml
+- well-known/life360-ai-plugin.json
+description: >-
+  Life360 publishes no MCP server. A web search on 2026-10-20 ("Life360 MCP server
+  model context protocol") returned only generic MCP documentation. Probes of
+  https://www.life360.com/.well-known/mcp.json, /.well-known/mcp/server-card.json and
+  /mcp answered HTTP 403 (a Cloudflare challenge page from this network, so they prove
+  nothing either way), and the pre-flight dossier found no MCP docs or tool table.
+  The provider's only agent surface is the legacy ai-plugin manifest
+  (auth none) pointing to a 4-operation public product-catalog OpenAPI. The tools
+  below are DERIVED candidates, one per operation in that spec. Nobody ships them.
+deployment:
+  mode: none
+  auth: none
+  verified: derived
+evidence:
+- url: https://www.life360.com/.well-known/mcp.json
+  status: 403
+  note: Cloudflare "Attention Required" page, not an MCP response
+- url: https://www.life360.com/mcp
+  status: 403
+  note: Cloudflare "Attention Required" page, not an MCP response
+tools:
+- name: search_products
+  description: Search Life360/Tile products (search, categories, skus, sort, limit, afterCursor).
+  backing_operation: GET /api/catalog/products
+  operationId: getApiCatalogProducts
+- name: get_product
+  description: Get a product by SKU.
+  backing_operation: GET /api/catalog/products/{sku}
+  operationId: getApiCatalogProductsBySku
+- name: check_product_availability
+  description: Check whether a product is available by SKU.
+  backing_operation: GET /api/catalog/products/{sku}/available
+  operationId: getApiCatalogProductsBySkuAvailable
+- name: get_related_products
+  description: Get related products (colors or variants) for a product SKU.
+  backing_operation: GET /api/catalog/products/{sku}/related-products
+  operationId: getApiCatalogProductsBySkuRelatedProducts

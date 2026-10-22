@@ -1,0 +1,75 @@
+name: Life360 pricing
+generated: '2026-10-20'
+method: searched
+source: https://www.life360.com/plans-pricing
+audience: consumer
+pricing_basis: tiered-subscription
+published: true
+delivery:
+  delivery: managed
+note: >-
+  These are consumer membership prices for the Life360 app (US page, Monthly toggle as
+  rendered). Life360 sells no API access; the only machine-readable surface is the
+  unauthenticated 4-operation product-catalog API, which has no published price.
+  The page also offers annual billing ("Annually Save 17%") without listing the annual
+  figures in the rendered text.
+plan_count: 4
+plans:
+- name: Free
+  description: Protect your family with our easy-to-use location tracking, crash detection, and more
+  price: 0
+  price_text: $0.00
+  currency: USD
+  features:
+  - 2 days of Location History
+  - 2 Place Alerts
+  - Family Driving Summary
+  - Track your stuff with Tile
+  limits:
+  - 2 days of Location History
+  - 2 Place Alerts
+- name: Silver
+  description: The perfect blend of family safety and practical tools for keeping tabs on everyone—and everything—you love the most.
+  price: 9.99
+  price_text: $9.99
+  currency: USD
+  billing_period: month
+  trial: Try 7 days free
+  features:
+  - 7 days Location History
+  - 5 places with Unlimited Alerts
+  - Family Driving Summary
+  - Crash Detection
+  limits:
+  - 7 days Location History
+  - 5 places
+- name: Gold
+  description: Stop worrying about your teen drivers… with Gold we’ll send help if anything goes wrong on the road
+  price: 16.99
+  price_text: $16.99
+  currency: USD
+  billing_period: month
+  trial: Try 7 days free
+  features:
+  - 30 days of Location History
+  - Unlimited Place Alerts
+  - Crash Detection + Emergency Dispatch
+  - 24/7 Roadside Assistance
+  - Individual Driver Reports
+  limits:
+  - 30 days of Location History
+- name: Platinum
+  description: Our most feature-packed membership option for ultimate connection and protection
+  price: 24.99
+  price_text: $24.99
+  currency: USD
+  billing_period: month
+  trial: Try 7 days free
+  features:
+  - 50 Miles Free towing
+  - $1M Stolen Funds Reimbursement
+  - Disaster Response
+  - Medical Assistance
+  - Travel Support
+  limits:
+  - 30 days of Location History

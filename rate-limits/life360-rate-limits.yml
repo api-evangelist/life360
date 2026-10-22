@@ -1,0 +1,13 @@
+name: Life360 rate limits
+generated: '2026-10-20'
+method: none
+source: https://www.life360.com/llms.txt
+limit_count: 0
+limits: []
+note: >-
+  Life360 publishes no rate limits: it has no developer documentation, and neither its
+  llms.txt index nor the advertised product-catalog OpenAPI (Life360 WEB API v0.1)
+  states a limit or a 429 response. A live probe of
+  https://www.life360.com/api/catalog/products?limit=1 on 2026-10-20 returned 403 (an
+  edge challenge to a non-browser client), so no X-RateLimit-* / RateLimit-* /
+  Retry-After headers could be observed.

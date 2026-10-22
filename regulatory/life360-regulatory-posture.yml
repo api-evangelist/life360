@@ -1,0 +1,107 @@
+generated: '2026-10-20'
+method: searched
+probe: true
+source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+signals:
+  data_subject_request:
+    url: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+    section: 'VIII. C. ii. Data Subject Requests'
+    channel: privacy@life360.com
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'You have the right to (1) access your personal information (2) obtain personal information you have provided to us (in a structured, commonly used and machine-readable format) and to reuse it elsewhere or to ask us to transfer it to your chosen third party, (3) request erasure of your personal information, and (4) request correction of inaccurate personal information.'
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'Alternatively, you may submit a request to exercise your rights under State Privacy Laws via email by contacting us at privacy@life360.com and including your account name and mobile telephone number as well as the consumer right you would like to exercise.'
+    note: >-
+      Published access / portability / erasure / correction rights for Europe and comparable jurisdictions,
+      and US state-law rights, exercisable in-app or by email to privacy@life360.com. No response period is
+      stated ("We will respond to requests to exercise privacy rights according to applicable laws.") and no
+      API for requests is documented.
+  global_privacy_control:
+    honored: true
+    url: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+    section: 'Your Rights Under State Privacy Laws — Opt Out of Sales, Sharing, and Targeted Advertising'
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'You can also opt out by visiting our Websites with a legally recognized universal opt-out signal enabled, such as the Global Privacy Control.'
+    note: A published statement that a universal opt-out signal (GPC) is honoured as an opt-out on the Websites; the apps use an in-app "Your Privacy Choices" link instead.
+  data_retention:
+    url: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+    section: 'VII. E. Data Retention'
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'Life360 retains the information we receive as described in this Privacy Policy for as long as you use our Products or Services or as otherwise necessary to fulfill the purpose(s) for which it was collected, to resolve disputes, establish legal defenses, conduct audits, pursue legitimate business interests, enforce our agreements, and to comply with applicable laws.'
+    note: A purpose-based retention statement; no fixed retention periods are published.
+  age_assurance:
+    url: https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service
+    section: 'I. A. Eligibility'
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'Anyone under thirteen (13) years of age (fourteen (14) years of age in Korea)(a “ child ”) is strictly prohibited from creating an account for the Service without explicit parental consent (or other age to the extent that your jurisdiction requires).'
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'Life360 does not knowingly collect personal information from children under 13 or under the minimum age requiring parental consent in each jurisdiction where our Services are offered (“Child” or “Children”) without obtaining the consent of a parent or guardian as required under applicable law.'
+    note: >-
+      Published age thresholds and a parental-consent requirement for children. Neither page describes an
+      age-verification or age-estimation mechanism, so this is an age policy, not evidence of technical age assurance.
+  notice_and_action:
+    url: https://legal.corp.life360.com/hc/en-us/articles/41336262320279-Life360-Community-Guidelines-and-Content-Moderation-Policy-Policy
+    section: 'How to Report'
+    channel: appeals@life360.com
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/41336262320279-Life360-Community-Guidelines-and-Content-Moderation-Policy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'You can report problematic Content by clicking a Member’s profile picture, then clicking on the three dots icon in the upper right-hand corner and then clicking “Report Abuse” and following the on-screen prompts.'
+    - source: https://legal.corp.life360.com/hc/en-us/articles/41336262320279-Life360-Community-Guidelines-and-Content-Moderation-Policy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'If you believe there was an error made, feel free to submit an appeal at appeals@life360.com .'
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'Copyright claims are handled in accordance with our Copyright Policy (DMCA) , which is incorporated into these Terms by reference, and is designed to comply with the United States Digital Millennium Copyright Act.'
+    note: >-
+      An in-app "Report Abuse" flow, an appeals address and a DMCA notice procedure. The policy does not
+      reference the EU Digital Services Act and states Life360 may act "with or without notice to the violating
+      party", so there is no published statement-of-reasons commitment.
+  incident_notification:
+    url: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+    section: 'VII. How We Protect Your Information'
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'If any information under our control is compromised as a result of a breach of security, we will take reasonable steps to investigate the situation and where appropriate, notify any impacted individuals and take steps in accordance with any applicable laws and regulations.'
+    note: A consumer-facing breach-notification statement with no stated notification period (no SLA).
+  data_residency:
+    url: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+    section: 'B. International Transfer'
+    offered: false
+    evidence:
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'You agree that all information collected via or by Life360 may be transferred, processed, and stored anywhere in the world, including but not limited to, the United States, the United Kingdom, the European Union, in the cloud, on our servers, on the servers of our affiliates or the servers of our service providers.'
+    - source: https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: 'The Life360 Companies have certified to the Department of Commerce that they adhere to the DPF Principles with respect to personal information transferred to them in reliance on the DPF.'
+    note: >-
+      This is a DENIAL of data residency: data may be stored anywhere in the world, and EU/UK/Swiss transfers
+      to the US rely on the Data Privacy Framework. No region choice is offered.
+not_found:
+  - subprocessors: no subprocessor list linked from the privacy policy or terms; the privacy policy refers only generically to "service providers".
+  - ai_transparency: the pages fetched do not mention AI; the moderation policy says only that Life360 "may use automated abuse detection mechanisms".
+  - sbom, support_lifetime, accessibility_conformance, training_data_summary, transparency_report, exit_assistance: not addressed on the legal pages read (the privacy policy mentions EU Data Act rights for Tile/Jiobit/Pet GPS by email request, but describes no switching or exit process).

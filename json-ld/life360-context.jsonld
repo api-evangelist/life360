@@ -1,0 +1,233 @@
+{
+  "@context": {
+    "@vocab": "https://life360.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "life360": "https://life360.com/schema#",
+    "Error": "life360:Error",
+    "errors": {
+      "@id": "life360:errors",
+      "@container": "@list"
+    },
+    "ErrorResponse": "life360:ErrorResponse",
+    "Product": "life360:Product",
+    "id": {
+      "@id": "life360:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "life360:name",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "life360:type",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "life360:description",
+      "@type": "xsd:string"
+    },
+    "descriptionHtml": {
+      "@id": "life360:descriptionHtml",
+      "@type": "xsd:string"
+    },
+    "sku": {
+      "@id": "life360:sku",
+      "@type": "xsd:string"
+    },
+    "brand": {
+      "@id": "life360:brand",
+      "@type": "xsd:string"
+    },
+    "slug": {
+      "@id": "life360:slug",
+      "@type": "xsd:string"
+    },
+    "path": {
+      "@id": "life360:path",
+      "@type": "xsd:string"
+    },
+    "inventory": {
+      "@id": "life360:inventory"
+    },
+    "price": {
+      "@id": "life360:price",
+      "@type": "@id"
+    },
+    "prices": {
+      "@id": "life360:prices",
+      "@type": "@id"
+    },
+    "options": {
+      "@id": "life360:options",
+      "@container": "@list"
+    },
+    "details": {
+      "@id": "life360:details",
+      "@type": "@id"
+    },
+    "reviewSummary": {
+      "@id": "life360:reviewSummary",
+      "@type": "@id"
+    },
+    "categories": {
+      "@id": "life360:categories",
+      "@container": "@list"
+    },
+    "relatedProducts": {
+      "@id": "life360:relatedProducts",
+      "@container": "@list"
+    },
+    "customFields": {
+      "@id": "life360:customFields"
+    },
+    "seo": {
+      "@id": "life360:seo"
+    },
+    "ProductImage": "life360:ProductImage",
+    "url": {
+      "@id": "life360:url",
+      "@type": "xsd:string"
+    },
+    "alt": {
+      "@id": "life360:alt",
+      "@type": "xsd:string"
+    },
+    "xxxs": {
+      "@id": "life360:xxxs",
+      "@type": "xsd:string"
+    },
+    "xxs": {
+      "@id": "life360:xxs",
+      "@type": "xsd:string"
+    },
+    "xs": {
+      "@id": "life360:xs",
+      "@type": "xsd:string"
+    },
+    "small": {
+      "@id": "life360:small",
+      "@type": "xsd:string"
+    },
+    "medium": {
+      "@id": "life360:medium",
+      "@type": "xsd:string"
+    },
+    "large": {
+      "@id": "life360:large",
+      "@type": "xsd:string"
+    },
+    "xxl": {
+      "@id": "life360:xxl",
+      "@type": "xsd:string"
+    },
+    "thumbnail": {
+      "@id": "life360:thumbnail",
+      "@type": "xsd:string"
+    },
+    "order": {
+      "@id": "life360:order",
+      "@type": "xsd:decimal"
+    },
+    "isThumbnail": {
+      "@id": "life360:isThumbnail",
+      "@type": "xsd:boolean"
+    },
+    "ProductPrice": "life360:ProductPrice",
+    "value": {
+      "@id": "life360:value",
+      "@type": "xsd:decimal"
+    },
+    "currencyCode": {
+      "@id": "life360:currencyCode",
+      "@type": "xsd:string"
+    },
+    "retailPrice": {
+      "@id": "life360:retailPrice",
+      "@type": "xsd:decimal"
+    },
+    "salePrice": {
+      "@id": "life360:salePrice",
+      "@type": "xsd:decimal"
+    },
+    "listPrice": {
+      "@id": "life360:listPrice",
+      "@type": "xsd:decimal"
+    },
+    "extendedSalePrice": {
+      "@id": "life360:extendedSalePrice",
+      "@type": "xsd:decimal"
+    },
+    "extendedListPrice": {
+      "@id": "life360:extendedListPrice",
+      "@type": "xsd:decimal"
+    },
+    "ProductPrices": "life360:ProductPrices",
+    "ProductOption": "life360:ProductOption",
+    "displayName": {
+      "@id": "life360:displayName",
+      "@type": "xsd:string"
+    },
+    "values": {
+      "@id": "life360:values",
+      "@container": "@list"
+    },
+    "ProductOptionValues": "life360:ProductOptionValues",
+    "label": {
+      "@id": "life360:label",
+      "@type": "xsd:string"
+    },
+    "hexColors": {
+      "@id": "life360:hexColors",
+      "@container": "@list"
+    },
+    "JasperProductDetails": "life360:JasperProductDetails",
+    "relations": {
+      "@id": "life360:relations"
+    },
+    "entities": {
+      "@id": "life360:entities"
+    },
+    "markdownAttributes": {
+      "@id": "life360:markdownAttributes"
+    },
+    "bundleQuantity": {
+      "@id": "life360:bundleQuantity",
+      "@type": "xsd:decimal"
+    },
+    "ReviewSummary": "life360:ReviewSummary",
+    "summationOfRatings": {
+      "@id": "life360:summationOfRatings",
+      "@type": "xsd:decimal"
+    },
+    "numberOfReviews": {
+      "@id": "life360:numberOfReviews",
+      "@type": "xsd:decimal"
+    },
+    "Category": "life360:Category",
+    "breadcrumbs": {
+      "@id": "life360:breadcrumbs"
+    },
+    "defaultImage": {
+      "@id": "life360:defaultImage"
+    },
+    "entityId": {
+      "@id": "life360:entityId",
+      "@type": "xsd:integer"
+    },
+    "metafields": {
+      "@id": "life360:metafields"
+    },
+    "products": {
+      "@id": "life360:products"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Life360 API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Life360's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/life360-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/life360-openapi.yml"
+  ]
+}

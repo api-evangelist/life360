@@ -1,0 +1,68 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/life360-product-api-openapi.yml
+vocabulary:
+  name: Life360 Domain Vocabulary
+  description: 'Terms declared by Life360''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-20'
+  terms:
+  - term: ProductPrice
+    definition: 'Object declared by the contract with fields: value, currencyCode, retailPrice, salePrice, listPrice, extendedSalePrice, extendedListPrice.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ProductPrice
+  - term: Error
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/Error
+  - term: ProductPrices
+    definition: 'Object declared by the contract with fields: price, retailPrice, salePrice.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ProductPrices
+  - term: ProductImage
+    definition: 'Object declared by the contract with fields: url, alt, type, description, xxxs, xxs, xs, small, medium, large, xxl, thumbnail.
+      (2 more)'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ProductImage
+  - term: Category
+    definition: 'Object declared by the contract with fields: id, breadcrumbs, defaultImage, description, entityId, metafields, name, path, products,
+      seo.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/Category
+  - term: Product
+    definition: 'Object declared by the contract with fields: id, name, type, description, descriptionHtml, sku, brand, slug, path, inventory,
+      price, prices. (7 more)'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/Product
+  - term: JasperProductDetails
+    definition: 'Object declared by the contract with fields: description, relations, entities, markdownAttributes, bundleQuantity.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/JasperProductDetails
+  - term: ErrorResponse
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ErrorResponse
+  - term: ReviewSummary
+    definition: 'Object declared by the contract with fields: summationOfRatings, numberOfReviews.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ReviewSummary
+  - term: ProductOption
+    definition: 'Object declared by the contract with fields: id, displayName, values.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ProductOption
+  - term: ProductOptionValues
+    definition: 'Object declared by the contract with fields: label, hexColors.'
+    tags:
+    - Object
+    source: openapi/life360-product-api-openapi.yml#/components/schemas/ProductOptionValues

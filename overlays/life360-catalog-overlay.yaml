@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: Life360 Product API - API Evangelist enhancements
+  version: 1.0.0
+  x-generated: '2026-10-20'
+  x-method: generated
+extends: openapi/life360-product-api-openapi.yml
+actions:
+- target: $.paths['/api/catalog/products'].get
+  update:
+    x-agent-tool: search_products
+    x-api-evangelist-safety: read-only; no authentication (ai-plugin manifest declares auth none)
+- target: $.paths['/api/catalog/products/{sku}'].get
+  update:
+    x-agent-tool: get_product
+    x-api-evangelist-safety: read-only
+- target: $.paths['/api/catalog/products/{sku}/available'].get
+  update:
+    x-agent-tool: check_product_availability
+    x-api-evangelist-safety: read-only
+- target: $.paths['/api/catalog/products/{sku}/related-products'].get
+  update:
+    x-agent-tool: get_related_products
+    x-api-evangelist-safety: read-only
+- target: $.info
+  update:
+    x-api-evangelist-note: Public, unauthenticated product-catalog API advertised by https://www.life360.com/.well-known/ai-plugin.json (auth
+      none). Not a location/family-safety API; Life360 publishes no partner API.
+- target: $.tags[?(@.name == 'Product')]
+  update:
+    description: Tile and Life360 hardware product catalog (search, lookup, availability, related variants).

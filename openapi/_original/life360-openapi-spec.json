@@ -1,0 +1,648 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Life360 WEB API",
+    "version": "0.1"
+  },
+  "security": [],
+  "paths": {
+    "/api/catalog/products/{sku}/available": {
+      "get": {
+        "summary": "Check if a product is available by SKU.",
+        "description": "Check if a product is available by SKU.",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "description": "The SKU of the product to check.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The product availability was successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "isAvailable": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A product SKU is required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/catalog/products/{sku}": {
+      "get": {
+        "summary": "Get a product by SKU.",
+        "description": "Get a product by SKU.",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "description": "The SKU of the product to retrieve.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The product was successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A product SKU is required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/catalog/products/{sku}/related-products": {
+      "get": {
+        "summary": "Get related products (by colors or variants) for a product SKU.",
+        "description": "Get related products (by colors or variants) for a product SKU.",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sku",
+            "required": true,
+            "description": "The SKU of the product to retrieve related products for.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The related products were successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Product"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "product SKU is required or invalid relation or invalid locale",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/catalog/products": {
+      "get": {
+        "summary": "Search products.",
+        "description": "Search the product catalog by search term, category, SKU and sort order.",
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "description": "Search term.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "categories",
+            "description": "Comma-separated category ids.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "skus",
+            "description": "Comma-separated SKUs. When set, returns those products and ignores the other filters.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "A_TO_Z",
+                "BEST_REVIEWED",
+                "BEST_SELLING",
+                "FEATURED",
+                "HIGHEST_PRICE",
+                "LOWEST_PRICE",
+                "NEWEST",
+                "Z_TO_A"
+              ],
+              "default": "FEATURED"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 50
+            }
+          },
+          {
+            "in": "query",
+            "name": "afterCursor",
+            "description": "Pagination cursor from the previous response's `afterCursor`.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching products."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message describing the error."
+                },
+                "field": {
+                  "type": "string",
+                  "description": "The field associated with the error."
+                },
+                "code": {
+                  "type": "string",
+                  "description": "A code associated with the error."
+                },
+                "details": {
+                  "type": "object",
+                  "description": "Additional details about the error."
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "errors"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Invalid field value or internal error"
+                },
+                "code": {
+                  "type": "string",
+                  "example": "any"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The product's unique identifier."
+          },
+          "name": {
+            "type": "string",
+            "description": "The product's name."
+          },
+          "type": {
+            "type": "string",
+            "description": "The product's type."
+          },
+          "description": {
+            "type": "string",
+            "description": "The product's description."
+          },
+          "descriptionHtml": {
+            "type": "string",
+            "description": "The product's description in HTML format."
+          },
+          "sku": {
+            "type": "string",
+            "description": "The product's SKU."
+          },
+          "brand": {
+            "type": "string",
+            "description": "The product's brand."
+          },
+          "slug": {
+            "type": "string",
+            "description": "The product's slug."
+          },
+          "path": {
+            "type": "string",
+            "description": "The product's path."
+          },
+          "inventory": {
+            "type": "object",
+            "properties": {
+              "isInStock": {
+                "type": "boolean",
+                "description": "Whether the product is in stock."
+              },
+              "aggregated": {
+                "type": "object",
+                "properties": {
+                  "availableToSell": {
+                    "type": "number",
+                    "description": "If product is available to sell."
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProductImage"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "price": {
+            "$ref": "#/components/schemas/ProductPrice"
+          },
+          "prices": {
+            "$ref": "#/components/schemas/ProductPrices"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductOption"
+            }
+          },
+          "details": {
+            "$ref": "#/components/schemas/JasperProductDetails"
+          },
+          "reviewSummary": {
+            "$ref": "#/components/schemas/ReviewSummary"
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          },
+          "relatedProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "customFields": {
+            "type": "object"
+          },
+          "seo": {
+            "type": "object",
+            "properties": {
+              "pageTitle": {
+                "type": "string",
+                "description": "The product's page title."
+              },
+              "metaDescription": {
+                "type": "string",
+                "description": "The product's meta description."
+              },
+              "metaKeywords": {
+                "type": "string",
+                "description": "The product's meta keywords."
+              }
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type",
+          "description",
+          "brand",
+          "inventory",
+          "images",
+          "price",
+          "prices",
+          "options",
+          "details",
+          "reviewSummary",
+          "categories"
+        ]
+      },
+      "ProductImage": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "xxxs": {
+            "type": "string"
+          },
+          "xxs": {
+            "type": "string"
+          },
+          "xs": {
+            "type": "string"
+          },
+          "small": {
+            "type": "string"
+          },
+          "medium": {
+            "type": "string"
+          },
+          "large": {
+            "type": "string"
+          },
+          "xxl": {
+            "type": "string"
+          },
+          "thumbnail": {
+            "type": "string"
+          },
+          "order": {
+            "type": "number"
+          },
+          "isThumbnail": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "url",
+          "xxxs",
+          "xxs",
+          "xs",
+          "small",
+          "medium",
+          "large",
+          "xxl",
+          "thumbnail"
+        ]
+      },
+      "ProductPrice": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "currencyCode": {
+            "type": "string"
+          },
+          "retailPrice": {
+            "type": "number"
+          },
+          "salePrice": {
+            "type": "number"
+          },
+          "listPrice": {
+            "type": "number"
+          },
+          "extendedSalePrice": {
+            "type": "number"
+          },
+          "extendedListPrice": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      },
+      "ProductPrices": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "$ref": "#/components/schemas/ProductPrice"
+          },
+          "retailPrice": {
+            "$ref": "#/components/schemas/ProductPrice"
+          },
+          "salePrice": {
+            "$ref": "#/components/schemas/ProductPrice"
+          }
+        },
+        "required": [
+          "price",
+          "retailPrice"
+        ]
+      },
+      "ProductOption": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductOptionValues"
+            }
+          }
+        }
+      },
+      "ProductOptionValues": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "hexColors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "JasperProductDetails": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "relations": {
+            "type": "object"
+          },
+          "entities": {
+            "type": "object"
+          },
+          "markdownAttributes": {
+            "type": "object"
+          },
+          "bundleQuantity": {
+            "type": "number"
+          }
+        }
+      },
+      "ReviewSummary": {
+        "type": "object",
+        "properties": {
+          "summationOfRatings": {
+            "type": "number"
+          },
+          "numberOfReviews": {
+            "type": "number"
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "breadcrumbs": {
+            "type": "object"
+          },
+          "defaultImage": {
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "entityId": {
+            "type": "integer"
+          },
+          "metafields": {
+            "type": "object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "products": {
+            "type": "object"
+          },
+          "seo": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

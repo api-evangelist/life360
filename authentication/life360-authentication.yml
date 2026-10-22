@@ -1,0 +1,12 @@
+generated: '2026-10-20'
+method: none
+source: openapi/life360-openapi.yml, https://www.life360.com/.well-known/ai-plugin.json
+schemes: []
+note: >-
+  The only published contract (Life360 WEB API v0.1, 4 GET operations under
+  /api/catalog on www.life360.com) declares no securitySchemes and no security
+  requirement, and the ai-plugin manifest that advertises it declares auth type none:
+  the catalog API is unauthenticated. Life360 documents no OAuth, API keys or scopes;
+  the member app's own API is private and undocumented. Note that on 2026-10-20 the
+  host answered 403 to a non-browser client, so access is gated by bot protection,
+  not by credentials.

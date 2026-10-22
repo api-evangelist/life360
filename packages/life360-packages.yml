@@ -1,0 +1,13 @@
+name: Life360 packages
+generated: '2026-10-20'
+method: none
+source: https://registry.npmjs.org/life360, https://pypi.org/pypi/life360/json
+note: 'no first-party package: every candidate a model listed was unowned (harvest-packages.py --audit)'
+packages: []
+rejected:
+- name: life360
+  registry: npm
+  reason: 'official: false as written'
+- name: life360
+  registry: pypi
+  reason: 'official: false as written'

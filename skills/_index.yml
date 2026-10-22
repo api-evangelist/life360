@@ -1,0 +1,12 @@
+name: Life360 agent skills
+generated: '2026-10-20'
+method: generated
+source:
+- openapi/life360-product-api-openapi.yml
+skills:
+- name: life360-find-and-check-a-product
+  path: skills/life360-find-and-check-a-product.md
+  operations: [getApiCatalogProducts, getApiCatalogProductsBySku, getApiCatalogProductsBySkuAvailable]
+- name: life360-explore-product-variants
+  path: skills/life360-explore-product-variants.md
+  operations: [getApiCatalogProductsBySku, getApiCatalogProductsBySkuRelatedProducts, getApiCatalogProductsBySkuAvailable]
