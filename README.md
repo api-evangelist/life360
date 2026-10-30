@@ -64,31 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Life360 is a family safety platform built around a location-sharing mobile app for iOS and Android — real-time member location, Place Alerts, location history, driving safety scores, crash detection, SOS alerts and emergency dispatch, plus digital safety features such as identity theft protection and dark web monitoring. Following the acquisitions of Tile and Jiobit, the hardware line spans Tile Mate, Pro, Slim and Sticker Bluetooth item trackers and a cellular GPS pet tracker. Membership is sold as Free, Silver, Gold and Platinum tiers.
+Life360 is a family safety platform built around a location-sharing mobile app for iOS and Android, offering real-time member location, Place Alerts, location history, driving safety scores and trip history, crash detection, SOS alerts and emergency dispatch, plus digital safety features such as identity theft protection and dark web monitoring. Its hardware line, following the acquisitions of Tile and Jiobit, spans Tile Mate, Pro, Slim and Sticker Bluetooth item trackers and a cellular GPS pet tracker, sold direct and through Amazon, Best Buy, Target and Walmart. The service is sold as Free, Silver, Gold and Platinum membership tiers. Life360 publishes no developer portal, no SDKs and no partner/location API — its only machine-readable surface is an agent-facing one (llms.txt, an ai-plugin manifest whose advertised OpenAPI (a 4-operation product-catalog spec at www.life360.com/openapi-spec.json) resolves, and Content-Signal directives in robots.txt). This profile is maintained in the API Evangelist network for company discovery and monitoring.
 
-Backed by: bessemer-venture-partners, dcm-ventures — https://www.life360.com/
+**Areas:** Company · Consumer · Family Safety · Location · GPS Tracking · Bluetooth Trackers · Mobile App · Driving Safety · Wearables · Subscription
 
-## API posture
+## Life360 on APIs.io
 
-Life360 publishes **no public developer API**, no OpenAPI, no SDKs, no CLI, no webhooks and no developer portal. This was verified three ways: `developer.life360.com` / `dev.` / `developers.` / `partners.` do not resolve; there is no `life360` GitHub organization; and the Life360 help center returns zero articles for "api", "developer" or "webhook". `api.life360.com` exists but is the private mobile-app backend — the only clients for it are community reverse-engineering projects, which are not first-party artifacts and are not captured here.
+Everything profiled for Life360 is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/life360/](https://apis.io/providers/life360/)** — or go straight to one of the APIs or properties below.
 
-What Life360 *does* publish is an **agent-facing** surface:
+### APIs (1)
 
-- [`llms.txt`](llms/life360-llms.txt) — a real, well-formed llms.txt at the site root.
-- [`.well-known/ai-plugin.json`](well-known/life360-ai-plugin.json) — an OpenAI plugin manifest describing product catalog, plan and checkout capabilities. **Its `api.url` (`/openapi-spec.json`) returns 404**, so the contract it advertises does not resolve.
-- [`robots.txt`](well-known/life360-robots.txt) — carries `Content-Signal: ai-train=no, ai-input=yes, search=yes` and explicit allows for GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot and Google-Extended.
-- [`.well-known/security.txt`](well-known/life360-security.txt) — RFC 9116, pointing at a HackerOne program and `responsibledisclosure@life360.com`. The `Expires` field is set to 2022-12-31 and is stale.
+- [Life360 Product API](https://apis.io/apis/life360/life360-product-api/) — Life360's public, unauthenticated product-catalog API ("Life360 WEB API" v0.1), advertised by the agent-facing manifest at…
 
-## Artifacts
+### Published properties
 
-| Artifact | File |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Life360 Agentic Access](https://apis.io/agentic-access/life360/life360-agentic-access/)
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [Product](https://apis.io/schemas/life360/life360-product/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Life360 Context](https://apis.io/jsonld/life360/life360-context/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Life360 Catalog Overlay](https://apis.io/overlays/life360/life360-catalog-overlay/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Life360 API Rules](https://apis.io/rules/life360/life360-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Life360 Authentication](https://apis.io/security/life360/life360-authentication/)
+- [Life360 Domain Security](https://apis.io/security/life360/life360-domain-security/)
+- [Life360 Vulnerability Disclosure](https://apis.io/security/life360/life360-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Life360 Plans Pricing](https://apis.io/plans/life360/life360-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Life360 Rate Limits](https://apis.io/rate-limits/life360/life360-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.life360.com/)
+- [Pricing](https://www.life360.com/plans-pricing)
+- [Sign up](https://www.life360.com/sign-up?web_loc=plans&period=month&plan=free)
+- [Support](https://support.life360.com/hc/en-us)
+- [Blog](https://www.life360.com/blog)
+- [Security](https://www.life360.com/security)
+- [Terms of service](https://legal.corp.life360.com/hc/en-us/articles/16124856472471-Life360-Terms-of-Service)
+- [Privacy policy](https://legal.corp.life360.com/hc/en-us/articles/16038777217175-Life360-Privacy-Policy)
+- [Status](https://status.life360.com/)
+
+## API Evangelist rating
+
+**Kin Score 46.7** — developing · rubric 0.24.0 · scored 2026-10-20
+
+| Facet | Score |
 |---|---|
-| Well-known index | [`well-known/life360-well-known.yml`](well-known/life360-well-known.yml) |
-| security.txt | [`well-known/life360-security.txt`](well-known/life360-security.txt) |
-| llms.txt | [`llms/life360-llms.txt`](llms/life360-llms.txt) |
-| Domain security | [`security/life360-domain-security.yml`](security/life360-domain-security.yml) |
-| Vulnerability disclosure | [`security/life360-vulnerability-disclosure.yml`](security/life360-vulnerability-disclosure.yml) |
-| Conformance | [`conformance/life360-conformance.yml`](conformance/life360-conformance.yml) |
-| Lifecycle | [`lifecycle/life360-lifecycle.yml`](lifecycle/life360-lifecycle.yml) |
+| Discoverability | 75.9 |
+| Contract quality | 54.6 |
+| Contract governance | 33.3 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 13.6 |
+| Access clarity | 69.7 |
 
-Related network profiles: [`all/tile/`](../tile), [`all/jiobit/`](../jiobit).
+**Agent readiness 28.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | unknown |
+| Well Known Catalog | — |
+| Consent Identity | yes |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/life360/](https://apis.io/providers/life360/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Life360: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/life360/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
